@@ -2,7 +2,7 @@
 
 /*
 
-Plugin Name: Custom Post
+Plugin Name: Dorpon Custom Post
 
 Plugin URI: https://jahangir.pro/
 

@@ -4,7 +4,7 @@
 
 Plugin Name: Dorpon Custom Post
 
-Plugin URI: https://jahangir.pro/
+Plugin URI: https://github.com/JahangirEdorpon/dorpon-custom-post.git
 
 Description: Plugin to accompany custom post plugin add various post , registers a post type.
 
@@ -27,22 +27,22 @@ if(!defined('ABSPATH'))
     exit;
 }
 
-class CustomPost{
+class DorponCustomPost{
    /**
      * Initialize this class
      */
     public function __construct() {
         // add_action( 'init', [$this, 'slider_post_type'] );
-        add_action( 'init', [$this, 'service_post_type'] );
-        // add_action( 'init', [$this, 'feature_post_type'] );
-        add_action( 'init', [$this, 'filter_portfolio_post_type'] );
-        add_action( 'init', [$this, 'team_post_type'] );
-        add_action( 'init', [$this, 'portfolio_category_taxonomy'] );
-        add_action( 'init', [$this, 'testimonial_post_type'] );
-        add_action( 'init', [$this, 'education_post_type'] );
-        add_action( 'init', [$this, 'skill_post_type'] );
-        add_action( 'init', [$this, 'skill_category_taxonomy'] );
-        add_action( 'init', [$this, 'experience_post_type'] );
+        add_action( 'init', [$this, 'dcp_service_post_type'] );
+        // add_action( 'init', [$this, 'dcp_feature_post_type'] );
+        add_action( 'init', [$this, 'dcp_filter_portfolio_post_type'] );
+        add_action( 'init', [$this, 'dcp_team_post_type'] );
+        add_action( 'init', [$this, 'dcp_portfolio_category_taxonomy'] );
+        add_action( 'init', [$this, 'dcp_testimonial_post_type'] );
+        add_action( 'init', [$this, 'dcp_education_post_type'] );
+        add_action( 'init', [$this, 'dcp_skill_post_type'] );
+        add_action( 'init', [$this, 'dcp_skill_category_taxonomy'] );
+        add_action( 'init', [$this, 'dcp_experience_post_type'] );
     }
 
     /**
@@ -50,7 +50,7 @@ class CustomPost{
      *
      * @version 1.0.0
      */
-    public function slider_post_type() {
+    public function dcp_slider_post_type() {
         register_post_type('slider', [
             'label'     => __( 'Slider', 'dorpon-portfolio' ),
             'labels'    => [
@@ -72,7 +72,7 @@ class CustomPost{
      *
      * @version 1.0.0
      */
-    public function service_post_type() {
+    public function dcp_service_post_type() {
         register_post_type('service', [
             'label'     => __( 'Service', 'dorpon-portfolio' ),
             'labels'    => [
@@ -94,7 +94,7 @@ class CustomPost{
      *
      * @version 1.0.0
      */
-    public function education_post_type() {
+    public function dcp_education_post_type() {
         register_post_type('education', [
             'label'     => __( 'Education', 'dorpon-portfolio' ),
             'labels'    => [
@@ -116,7 +116,7 @@ class CustomPost{
      *
      * @version 1.0.0
      */
-    public function feature_post_type() {
+    public function dcp_feature_post_type() {
         register_post_type('feature', [
             'label'     => __( 'Feature', 'dorpon-portfolio' ),
             'labels'    => [
@@ -138,7 +138,7 @@ class CustomPost{
      *
      * @version 1.0.0
      */
-    public function team_post_type() {
+    public function dcp_team_post_type() {
         register_post_type('team', [
             'label'     => __( 'Team', 'dorpon-portfolio' ),
             'labels'    => [
@@ -162,7 +162,7 @@ class CustomPost{
      *
      * @version 1.0.0
      */
-    public function experience_post_type() {
+    public function dcp_experience_post_type() {
         register_post_type('experience', [
             'label'     => __( 'Experience', 'dorpon-portfolio' ),
             'labels'    => [
@@ -188,7 +188,7 @@ class CustomPost{
 
     // add_action('init', 'filter_portfolio_post_type');
 
-    function filter_portfolio_post_type() {
+    function dcp_filter_portfolio_post_type() {
         register_post_type( 'portfolio',
             array( 'labels' => array(
                 'name' => __( 'Portfolio', 'dorpon-portfolio'),
@@ -223,7 +223,7 @@ class CustomPost{
 
   }
 
-  function portfolio_category_taxonomy() {
+  function dcp_portfolio_category_taxonomy() {
     // Define the taxonomy
       $labels = array(
         'name' => __( 'Portfolio Category', 'dorpon-portfolio' ),
@@ -259,7 +259,7 @@ class CustomPost{
 
     // add_action('init', 'skill_post_type');
 
-    function skill_post_type() {
+    function dcp_skill_post_type() {
         register_post_type( 'skill',
             array( 'labels' => array(
                 'name' => __( 'Skill', 'dorpon-portfolio'),
@@ -294,7 +294,7 @@ class CustomPost{
 
   }
 
-    function skill_category_taxonomy() {
+    function dcp_skill_category_taxonomy() {
         // Define the taxonomy
           $labels = array(
             'name' => __( 'Skill Category', 'dorpon-portfolio' ),
@@ -328,7 +328,7 @@ class CustomPost{
      *
      * @version 1.0.0
      */
-    public function testimonial_post_type() {
+    public function dcp_testimonial_post_type() {
         register_post_type('testimonial', [
             'label'     => __( 'Testimonial', 'dorpon-portfolio' ),
             'labels'    => [
@@ -347,6 +347,6 @@ class CustomPost{
 
 }
 
-new CustomPost;
+new DorponCustomPost;
 
 

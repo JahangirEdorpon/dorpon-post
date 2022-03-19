@@ -2,9 +2,9 @@
 
 /*
 
-Plugin Name: Dorpon Custom Post
+Plugin Name: Dorpon Post
 
-Plugin URI: https://github.com/JahangirEdorpon/dorpon-custom-post.git
+Plugin URI: https://github.com/JahangirEdorpon/dorpon-post.git
 
 Description: Plugin to accompany custom post plugin add various post , registers a post type.
 
@@ -32,39 +32,13 @@ class DorponCustomPost{
      * Initialize this class
      */
     public function __construct() {
-        // add_action( 'init', [$this, 'slider_post_type'] );
         add_action( 'init', [$this, 'dcp_service_post_type'] );
-        // add_action( 'init', [$this, 'dcp_feature_post_type'] );
         add_action( 'init', [$this, 'dcp_filter_portfolio_post_type'] );
-        add_action( 'init', [$this, 'dcp_team_post_type'] );
         add_action( 'init', [$this, 'dcp_portfolio_category_taxonomy'] );
         add_action( 'init', [$this, 'dcp_testimonial_post_type'] );
         add_action( 'init', [$this, 'dcp_education_post_type'] );
-        add_action( 'init', [$this, 'dcp_skill_post_type'] );
-        add_action( 'init', [$this, 'dcp_skill_category_taxonomy'] );
-        add_action( 'init', [$this, 'dcp_experience_post_type'] );
     }
 
-    /**
-     * slider post type
-     *
-     * @version 1.0.0
-     */
-    public function dcp_slider_post_type() {
-        register_post_type('slider', [
-            'label'     => __( 'Slider', 'dorpon-portfolio' ),
-            'labels'    => [
-                'name'  => __( 'Slider', 'dorpon-portfolio' ),
-                'singular_name' => __( 'Slide', 'dorpon-portfolio' ),
-                'add_new'       => __( 'Add new slide', 'dorpon-portfolio' ),
-                'add_new_item'  => __( 'Add new slide', 'dorpon-portfolio' ),
-                'edit_item'     => __( 'Edit Slide', 'dorpon-portfolio' )
-            ],
-            'menu_icon' => 'dashicons-images-alt',
-            'public'    => true,
-            'supports'  => ['title', 'editor', 'custom-fields', 'thumbnail']
-        ]);
-    }
 
 
     /**
@@ -111,77 +85,9 @@ class DorponCustomPost{
     }
 
 
-    /**
-     * Feature post type
-     *
-     * @version 1.0.0
-     */
-    public function dcp_feature_post_type() {
-        register_post_type('feature', [
-            'label'     => __( 'Feature', 'dorpon-portfolio' ),
-            'labels'    => [
-                'name'  => __( 'Feature', 'dorpon-portfolio' ),
-                'singular_name' => __( 'feature', 'dorpon-portfolio' ),
-                'all_items' => __( 'All Feature', 'dorpon-portfolio'),
-                'add_new'       => __( 'Add New', 'dorpon-portfolio' ),
-                'add_new_item'  => __( 'Add New', 'dorpon-portfolio' ),
-                'edit_item'     => __( 'Edit Feature', 'dorpon-portfolio' )
-            ],
-            'menu_icon' => 'dashicons-text',
-            'public'    => true,
-            'supports'  => ['title', 'editor', 'custom-fields', 'thumbnail']
-        ]);
-    }
-
-     /**
-     * Team post type
-     *
-     * @version 1.0.0
-     */
-    public function dcp_team_post_type() {
-        register_post_type('team', [
-            'label'     => __( 'Team', 'dorpon-portfolio' ),
-            'labels'    => [
-                'name'  => __( 'Team', 'dorpon-portfolio' ),
-                'singular_name' => __( 'feature', 'dorpon-portfolio' ),
-                'all_items' => __( 'All Team', 'dorpon-portfolio'),
-                'add_new'       => __( 'Add New', 'dorpon-portfolio' ),
-                'add_new_item'  => __( 'Add New', 'dorpon-portfolio' ),
-                'edit_item'     => __( 'Edit Team', 'dorpon-portfolio' )
-            ],
-            'menu_icon' => 'dashicons-groups',
-            'public'    => true,
-            'supports'  => ['title', 'editor', 'custom-fields', 'thumbnail']
-        ]);
-    }
-
-
-    
-     /**
-     * Experience post type
-     *
-     * @version 1.0.0
-     */
-    public function dcp_experience_post_type() {
-        register_post_type('experience', [
-            'label'     => __( 'Experience', 'dorpon-portfolio' ),
-            'labels'    => [
-                'name'  => __( 'Experience', 'dorpon-portfolio' ),
-                'singular_name' => __( 'feature', 'dorpon-portfolio' ),
-                'all_items' => __( 'All Experience', 'dorpon-portfolio'),
-                'add_new'       => __( 'Add New', 'dorpon-portfolio' ),
-                'add_new_item'  => __( 'Add New', 'dorpon-portfolio' ),
-                'edit_item'     => __( 'Edit Experience', 'dorpon-portfolio' )
-            ],
-            'menu_icon' => 'dashicons-image-filter',
-            'public'    => true,
-            'supports'  => ['title', 'editor', 'custom-fields', 'thumbnail']
-        ]);
-    }
-
 
  /**
-     * feature post type
+     * portfolio post type
      *
      * @version 1.0.0
      */
@@ -251,75 +157,6 @@ class DorponCustomPost{
     }
 
 
-    /**
-     * feature post type
-     *
-     * @version 1.0.0
-     */
-
-    // add_action('init', 'skill_post_type');
-
-    function dcp_skill_post_type() {
-        register_post_type( 'skill',
-            array( 'labels' => array(
-                'name' => __( 'Skill', 'dorpon-portfolio'),
-                'all_items' => __( 'All Skill', 'dorpon-portfolio'),
-                'singular_name' => __( 'Skill', 'dorpon-portfolio'),
-                'add_new' => __( 'Add New', 'dorpon-portfolio'),
-                'add_new_item' => __( 'Add New Skill', 'dorpon-portfolio'),
-                'edit' => __( 'Edit', 'dorpon-portfolio'),
-                'edit_item' => __( 'Edit Skill', 'dorpon-portfolio'),
-                'new_item' => __( 'New Skill', 'dorpon-portfolio'),
-                'view_item' => __( 'View Skill', 'dorpon-portfolio'),
-                'search_items' => __( 'Search Skill', 'dorpon-portfolio'),
-                'not_found' =>  __( 'No Skill found, yet!', 'dorpon-portfolio'),
-                'not_found_in_trash' => __( 'Nothing found in Trash', 'dorpon-portfolio'),
-                'parent_item_colon' => ''
-                ),
-                'description' => __( 'A place for our portfolio to live', 'dorpon-portfolio'),
-                'public' => true,
-                'publicly_queryable' => true,
-                'exclude_from_search' => false,
-                'show_ui' => true,
-                'query_var' => true,
-                'menu_position' => 5,
-                'menu_icon'=> 'dashicons-hammer',
-                'rewrite'  => array( 'slug' => 'portfolio', 'with_front' => true ),
-                'has_archive' => true,
-                'capability_type' => 'post',
-                'hierarchical' => false,
-                'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
-            )
-        );
-
-  }
-
-    function dcp_skill_category_taxonomy() {
-        // Define the taxonomy
-          $labels = array(
-            'name' => __( 'Skill Category', 'dorpon-portfolio' ),
-            'singular_name' => __( 'Skill Category', 'dorpon-portfolio' ),
-            'search_items' =>  __( 'Search Category', 'dorpon-portfolio' ),
-            'all_items' => __( 'All Category', 'dorpon-portfolio' ),
-            'parent_item' => __( 'Parent Category', 'dorpon-portfolio' ),
-            'parent_item_colon' => __( 'Parent Category:', 'dorpon-portfolio' ),
-            'edit_item' => __( 'Edit Category', 'dorpon-portfolio' ),
-            'update_item' => __( 'Update Category', 'dorpon-portfolio' ),
-            'add_new_item' => __( 'Add New Category', 'dorpon-portfolio' ),
-            'new_item_name' => __( 'New Category Name', 'dorpon-portfolio' ),
-            'menu_name' => __( 'Category', 'dorpon-portfolio' ),
-          );
-    
-        // Now register the taxonomy
-          register_taxonomy('skill_category',array('skill'), array(
-            'hierarchical' => true,
-            'labels' => $labels,
-            'show_ui' => true,
-            'show_admin_column' => true,
-            'query_var' => true,
-            'rewrite' => array( 'slug' => 'skill_category' ),
-          ));
-        }
 
 
 
